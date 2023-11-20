@@ -46,8 +46,7 @@ class OpenEyesClassificator():
 		return round(torch.nn.functional.softmax(outputs.cpu(), dim=1)[:, 1].item(), 4)
 
 	def open_img(self, inpIm):
-		pil_img = Image.open(inpIm).convert("RGB")
-		return pil_img
+		return Image.open(inpIm).convert("RGB")
 
 	def preprocess_img(self, pil_img):
 		x = self.transforms(pil_img)
